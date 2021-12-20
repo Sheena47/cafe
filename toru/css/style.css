@@ -1,0 +1,47 @@
+body {
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  grid-template: "header header header" "left   center right " 1fr "footer footer footer"/150px minmax(300px, 1fr) 150px;
+}
+
+body header {
+  grid-area: header;
+}
+
+body nav {
+  grid-area: left;
+}
+
+body main {
+  grid-area: center;
+}
+
+body main .concept {
+  background-image: url("../img/photo-1542181961-9590d0c79dab.jpeg");
+  background-size: cover;
+  padding-top: calc(100%*321/754);
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body main .concept p {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 25%;
+  margin: 0px 0px 24px 24px;
+  text-align: center;
+}
+
+body aside {
+  grid-area: right;
+}
+
+body footer {
+  grid-area: footer;
+}
+/*# sourceMappingURL=style.css.map */

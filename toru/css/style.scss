@@ -1,0 +1,31 @@
+body{
+    color: white;
+    display: grid;
+    grid-template:
+        "header header header"
+        "left   center right "1fr
+        "footer footer footer"
+        /150px minmax(300px, 1fr) 150px;
+    header{grid-area: header;}
+    nav{grid-area: left;}
+    main{
+        grid-area: center;
+        .concept{
+            background-image: url("../img/photo-1542181961-9590d0c79dab.jpeg");
+            background-size: cover;
+            padding-top: calc(100%*321/754);
+            max-width:100%;
+            display: flex;
+            align-items: flex-end;
+            p{
+                background-color: rgba(0,0,0,0.6);
+                width: 25%;
+                margin:0px 0px 24px 24px;
+                text-align: center;
+            }
+        }
+    }
+    aside{grid-area: right;}
+    footer{grid-area: footer;}
+}
+
