@@ -4,13 +4,16 @@
 }
 body{
     color: white;
+    background-color: #f5deb3;
     display: grid;
     grid-template:
         "header header header"
         "left   center right "1fr
         "footer footer footer"
-        /150px minmax(300px, 1fr) 150px;
-    header{grid-area: header;}
+        /10% minmax(300px, 1fr) 10%;
+    header{
+        grid-area: header;
+    }
     nav{grid-area: left;}
     main{
         grid-area: center;
@@ -27,22 +30,24 @@ body{
                 width: 45%;
                 padding: 20px 0px;
                 margin:0px 0px 24px 24px;
+                font-size: clamp(16px, 1vw, 32px);
                 text-align: center;
                 h2{
-                    font-size: 32px;
+                    font-size: clamp(32px, 1vw, 40px);
                 }
             }
         }
         .menu{
             @include solid;
             color: black;
-            text-align: center;
             h2{
                 font-size: 80px;
-                @include solid;
+                text-align: center;
             }
             .card{
                 display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
                 &__list{
                     width: calc(100%/3 - (20px * 2));
                     height: auto;
@@ -80,8 +85,53 @@ body{
                 }
             }
         }
+        .accsess{
+            @include solid;
+            h3{
+                font-size: 32px;
+                text-align: center;
+            }
+            .gmap {
+                height: 0;
+                overflow: hidden;
+                padding-bottom: 56.25%;
+                position: relative;
+                iframe {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
     }
     aside{grid-area: right;}
     footer{grid-area: footer;}
 }
+@media screen and (max-width: 1000px){
+    body{
+      grid-template: 
+      "header" 150px
+      "center" 1fr
+      "left  "
+      "right "
+      "footer" 100px
+      ;
+      main{
+        .concept{
+            background-image: url("../img/phone.jpeg");
+            height: 1vh;
+            padding-top: calc(100%*841/383);
+        }
+        .menu{
+            .card{
+                &__list{
+                    width: 100%;
+                }
+            }
+        }
+      }
+    }
 
+  }

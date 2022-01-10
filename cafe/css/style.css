@@ -1,8 +1,9 @@
 body {
   color: white;
+  background-color: #f5deb3;
   display: -ms-grid;
   display: grid;
-  grid-template: "header header header" "left   center right " 1fr "footer footer footer"/150px minmax(300px, 1fr) 150px;
+  grid-template: "header header header" "left   center right " 1fr "footer footer footer"/10% minmax(300px, 1fr) 10%;
 }
 
 body header {
@@ -36,24 +37,33 @@ body main .concept__message {
   width: 45%;
   padding: 20px 0px;
   margin: 0px 0px 24px 24px;
+  font-size: clamp(16px, 1vw, 32px);
   text-align: center;
 }
 
 body main .concept__message h2 {
-  font-size: 32px;
+  font-size: clamp(32px, 1vw, 40px);
 }
 
 body main .menu {
   border: 1px solid;
   border-color: gray;
   color: black;
-  text-align: center;
 }
 
 body main .menu h2 {
   font-size: 80px;
-  border: 1px solid;
-  border-color: gray;
+  text-align: center;
+}
+
+body main .menu .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 body main .menu .card__list {
@@ -63,13 +73,14 @@ body main .menu .card__list {
   border-radius: 8px;
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  display: inline-block;
 }
 
 body main .menu .card__imgframe {
   width: 100%;
   height: auto;
   padding-top: 56.25%;
-  background: url(https://placehold.jp/640x360.png) no-repeat center;
   background-size: cover;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -99,11 +110,50 @@ body main .menu .card__overviewtext {
   line-height: 150%;
 }
 
+body main .accsess {
+  border: 1px solid;
+  border-color: gray;
+}
+
+body main .accsess h3 {
+  font-size: 32px;
+  text-align: center;
+}
+
+body main .accsess .gmap {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+body main .accsess .gmap iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
 body aside {
   grid-area: right;
 }
 
 body footer {
   grid-area: footer;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    grid-template: "header" 150px "center" 1fr "left  " "right " "footer" 100px;
+  }
+  body main .concept {
+    background-image: url("../img/phone.jpeg");
+    height: 1vh;
+    padding-top: calc(100%*841/383);
+  }
+  body main .menu .card__list {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
