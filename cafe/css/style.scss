@@ -2,13 +2,13 @@
     border: 1px solid;
     border-color: gray;
 }
-@mixin main {
+@mixin contants {
     background-color: white;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,.2);
     padding: 40px;
-    margin: 0px 10%;
+    margin: 2% 10%;
 }
 body{
     color: black;
@@ -55,7 +55,7 @@ body{
             }
         }
         .menu{
-            @include main;
+            @include contants;
             color: black;
             margin-top: 48px;
             h2{
@@ -105,7 +105,7 @@ body{
             }
         }
         .accsess{
-            @include main;
+            @include contants;
             h3{
                 font-size: 32px;
                 text-align: center;
