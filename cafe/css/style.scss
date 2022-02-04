@@ -1,14 +1,10 @@
-@mixin solid (){
-    border: 1px solid;
-    border-color: gray;
-}
-@mixin contants {
-    background-color: white;
+@mixin contants ($color:white , $shadow: 0 4px 15px rgba(0,0,0,.2) , $border:8px , $padding:4% 2% , $margin:4% 8%){
+    background-color: $color;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.2);
-    padding: 40px;
-    margin: 2% 10%;
+    box-shadow: $shadow;
+    border-radius: $border;
+    padding: $padding;
+    margin: $margin;
 }
 body{
     color: black;
@@ -26,9 +22,11 @@ body{
         nav{
             display: flex;
             align-items: center;
-            float: right;
+            justify-content: flex-end;
+            width: 100%;
             ul{
                 display: flex;
+                li{margin-right: 36px;}
             }
         }
     }
@@ -36,7 +34,6 @@ body{
         .concept{
             background-image: url("../img/photo-1620360289986-d9e73a6f475b.jpeg");
             background-size: cover;
-            padding-top: calc(100%*321/1740);
             max-width:100%;
             height: 100vh;
             color: white;
@@ -44,9 +41,9 @@ body{
             align-items: center;
             &__message{
                 background-color: rgba(0,0,0,0.6);
-                width: 45%;
+                width: 35%;
                 padding: 20px 0px;
-                margin:0px 0px 24px 24px;
+                margin:0px 0px 0px 40px;
                 font-size: clamp(16px, 1vw, 32px);
                 text-align: center;
                 h2{
@@ -59,9 +56,9 @@ body{
             color: black;
             margin-top: 48px;
             h2{
-                font-size: 80px;
-                text-align: center;
-                padding: 40px 0px;
+                font-size: 32px;
+                text-align: left;
+                padding-bottom: 4%;
             }
             .card{
                 display: flex;
@@ -74,6 +71,7 @@ body{
                     border-radius: 8px;
                     box-shadow: 0 4px 15px rgba(0,0,0,.2);
                     display: inline-block;
+                    margin-top: 12px;
                 }
                 &__imgframe{
                     width: 100%;
@@ -104,21 +102,28 @@ body{
                 }
             }
         }
-        .accsess{
-            @include contants;
-            h3{
-                font-size: 32px;
+        .access{
+            @include contants($color:white , $shadow: 0 4px 15px rgba(0,0,0,.2) , $border:8px , $padding:1.25% , $margin:2% 8%);
+            height: 360px;
+            display: flex;
+                &__text{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 text-align: center;
+                letter-spacing: 1px;
+                width: 36%;
+                h3{
+                    display: inline-block;
+                    margin-bottom: 8px;
+                    font-size: 28px;
+                }
             }
             .gmap {
-                height: 0;
-                overflow: hidden;
-                padding-bottom: 56.25%;
-                position: relative;
+                height: 100%;
+                width: 64%;
                 iframe {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
                     height: 100%;
                     width: 100%;
                 }
@@ -129,25 +134,70 @@ body{
 }
 @media screen and (max-width: 1000px){
     body{
-      grid-template: 
-      "header" 150px
-      "center" 1fr
-      "footer" 100px
-      ;
-      main{
-        .concept{
-            background-image: url("../img/phone.jpeg");
-            height: 1vh;
-            padding-top: calc(100%*841/383);
-        }
-        .menu{
-            .card{
-                &__list{
-                    width: 100%;
+        grid-template: 
+        "header" 150px
+        "center" 1fr
+        "footer" 100px
+        ;
+        main{
+            width: 100%;
+            .concept{
+                background-image: url("../img/phone.jpeg");
+                height: 100vh;
+                padding-top: 0px;
+                align-items: flex-end;
+                &__message{
+                    width: 80%;
+                    margin: 0px 0px 160px 20px;
+                    text-align: center;
+                    position: absolute;
+                    h2{
+                        font-size: clamp(32px, 1vw, 40px);
+                    }
+                }
+            }
+            .menu{
+                @include contants(transparent , none , 0px , 0px, 0px);
+                margin-top: 20px;
+                h2{
+                    font-size: 20px;
+                    padding: 0px;
+                    margin-left: 4px;
+                    text-align: left;
+                    text-shadow: white 1px 1px 3px;
+                }
+                .card{
+                    justify-content: space-between;
+                    &__list{
+                        width: calc(100%/2 - (1px * 2));
+                        border-radius: 0px;
+                    }
+                    &__textbox{
+                        padding: 12px 8px;
+                    }
+                    &__textbox > * + *{
+                        margin-top: 8px;
+                    }
+                    &__titletext{
+                        font-size: 8px;
+                        font-weight: bold;
+                        line-height: 100%;
+                    }
+                    &__overviewtext{
+                        font-size: 4px;
+                        line-height: 85%;
+                    }
+                }
+            }
+            .access{
+                @include contants(white , none , 0px , 0px, 8px 0px);
+                &__text{
+                    font-size: 12px;
+                    h3{
+                        font-size: 20px;
+                    }
                 }
             }
         }
-      }
     }
-
-  }
+}

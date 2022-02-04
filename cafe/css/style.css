@@ -25,7 +25,10 @@ body header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  float: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
 }
 
 body header nav ul {
@@ -34,10 +37,13 @@ body header nav ul {
   display: flex;
 }
 
+body header nav ul li {
+  margin-right: 36px;
+}
+
 body main .concept {
   background-image: url("../img/photo-1620360289986-d9e73a6f475b.jpeg");
   background-size: cover;
-  padding-top: calc(100%*321/1740);
   max-width: 100%;
   height: 100vh;
   color: white;
@@ -51,9 +57,9 @@ body main .concept {
 
 body main .concept__message {
   background-color: rgba(0, 0, 0, 0.6);
-  width: 45%;
+  width: 35%;
   padding: 20px 0px;
-  margin: 0px 0px 24px 24px;
+  margin: 0px 0px 0px 40px;
   font-size: clamp(16px, 1vw, 32px);
   text-align: center;
 }
@@ -65,19 +71,19 @@ body main .concept__message h2 {
 body main .menu {
   background-color: white;
   overflow: hidden;
-  border-radius: 8px;
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  margin: 2% 10%;
+  border-radius: 8px;
+  padding: 4% 2%;
+  margin: 4% 8%;
   color: black;
   margin-top: 48px;
 }
 
 body main .menu h2 {
-  font-size: 80px;
-  text-align: center;
-  padding: 40px 0px;
+  font-size: 32px;
+  text-align: left;
+  padding-bottom: 4%;
 }
 
 body main .menu .card {
@@ -98,6 +104,7 @@ body main .menu .card__list {
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   display: inline-block;
+  margin-top: 12px;
 }
 
 body main .menu .card__imgframe {
@@ -134,32 +141,51 @@ body main .menu .card__overviewtext {
   line-height: 150%;
 }
 
-body main .accsess {
+body main .access {
   background-color: white;
   overflow: hidden;
-  border-radius: 8px;
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  margin: 2% 10%;
+  border-radius: 8px;
+  padding: 1.25%;
+  margin: 2% 8%;
+  height: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-body main .accsess h3 {
-  font-size: 32px;
+body main .access__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
+  letter-spacing: 1px;
+  width: 36%;
 }
 
-body main .accsess .gmap {
-  height: 0;
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
+body main .access__text h3 {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 28px;
 }
 
-body main .accsess .gmap iframe {
-  position: absolute;
-  left: 0;
-  top: 0;
+body main .access .gmap {
+  height: 100%;
+  width: 64%;
+}
+
+body main .access .gmap iframe {
   height: 100%;
   width: 100%;
 }
@@ -172,13 +198,81 @@ body footer {
   body {
     grid-template: "header" 150px "center" 1fr "footer" 100px;
   }
+  body main {
+    width: 100%;
+  }
   body main .concept {
     background-image: url("../img/phone.jpeg");
-    height: 1vh;
-    padding-top: calc(100%*841/383);
+    height: 100vh;
+    padding-top: 0px;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  body main .concept__message {
+    width: 80%;
+    margin: 0px 0px 160px 20px;
+    text-align: center;
+    position: absolute;
+  }
+  body main .concept__message h2 {
+    font-size: clamp(32px, 1vw, 40px);
+  }
+  body main .menu {
+    background-color: transparent;
+    overflow: hidden;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+  }
+  body main .menu h2 {
+    font-size: 20px;
+    padding: 0px;
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: white 1px 1px 3px;
+  }
+  body main .menu .card {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   body main .menu .card__list {
-    width: 100%;
+    width: calc(100%/2 - (1px * 2));
+    border-radius: 0px;
+  }
+  body main .menu .card__textbox {
+    padding: 12px 8px;
+  }
+  body main .menu .card__textbox > * + * {
+    margin-top: 8px;
+  }
+  body main .menu .card__titletext {
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 100%;
+  }
+  body main .menu .card__overviewtext {
+    font-size: 4px;
+    line-height: 85%;
+  }
+  body main .access {
+    background-color: white;
+    overflow: hidden;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-radius: 0px;
+    padding: 0px;
+    margin: 8px 0px;
+  }
+  body main .access__text {
+    font-size: 12px;
+  }
+  body main .access__text h3 {
+    font-size: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
