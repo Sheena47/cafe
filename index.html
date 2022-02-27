@@ -15,8 +15,9 @@
         <h1>cafe</h1>
         <nav>
             <ul>
-                <li><a href="#">メニュー</a></li>
-                <li><a href="#">アクセス</a></li>
+                <li><a href="#news">ニュース</a></li>
+                <li><a href="#menu">メニュー</a></li>
+                <li><a href="#access">アクセス</a></li>
             </ul>
         </nav>
     </header>
@@ -34,9 +35,22 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section id="news">
+            <div class="news fadeIn">
+                <h3>ニュース</h3>
+                <dl class="ac">
+                    <dt class="ac-parent">news</dt>
+                    <dd class="ac-child">中身</dd>
+                    <dt class="ac-parent">news</dt>
+                    <dd class="ac-child">中身</dd>
+                    <dt class="ac-parent">news</dt>
+                    <dd class="ac-child">中身</dd>
+                </dl>
+            </div>
+        </section>
+        <section id="menu">
             <div class="menu fadeIn">
-                <h2>メニュー</h2>
+                <h3>メニュー</h3>
                 <div class="card">
                     <div class="card__list">
                         <div class="card__imgframe"></div>
@@ -107,7 +121,7 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section id="access">
             <div class="access fadeIn">
                 <h3>アクセス</h3>
                 <div class="access__contents">
@@ -126,7 +140,6 @@
             </div>
         </section>
     </main>
-    <footer></footer>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>

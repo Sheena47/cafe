@@ -8,3 +8,9 @@ $(window).on('scroll load', function(){        /* ページロード時、また
     }
   });
 });
+
+$(function () {
+  $('.ac-parent').on('click', function () {
+  $(this).next().slideToggle();
+});
+});
